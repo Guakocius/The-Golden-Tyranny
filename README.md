@@ -65,4 +65,6 @@ We welcome contributions from the community! If you'd like to help improve Solar
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+##
+
 Enjoy your journey through Solarion, and may the sun's light guide you—or burn your enemies to ash!
