@@ -1,16 +1,35 @@
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <curses.h>
 #include <string>
 #include <chrono>
 #include <thread>
 
-void startMenu() {
+struct GameState {
+
+    std::string playerName;
+    int level;
+    int health;
+};
+
+void gameLoop() {
 
 }
+//TODO: Implement the load game function. 
+void saveGame(const GameState& state) {
 
-void loadMenu() {
+    std::ofstream file("savegame.sav", std::ios::binary);
 
+    if(file.is_open()) {
+        file << state.playerName << "\n"
+             << state.level << "\n"
+             << state.health << "\n";
+        file.close();
+        std::cout << "Game saved." << std::endl;
+    } else {
+        std::cout << "Error: Unable to save game." << std::endl;
+    }
 }
 
 void newGame() {
@@ -49,35 +68,45 @@ void exitGame() {
 
 }
 
-int main() {
+void startMenu(std::istream& input, const std::string& headDecision, int choice) {
 
-    std::string headDecision = "Choose an action:\n";
-    
-    std::cout << headDecision << std::endl;
     std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
     std::cout.flush();
-
-    int choice;
-    std::cin >> choice;
+    input >> choice;
     std::cin.ignore();
+    std::cout << "\n";
 
     switch(choice) {
         case 1:
             newGame();
             break;
         case 2:
-            loadGame();
+            //loadGame();
             break;
         case 3:
-            options();
+            //options();
             break;
         case 4:
-            exitGame();
+            //exitGame();
             break;
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
             break;
     }
+
+}
+
+int main() {
+
+    std::string headDecision = "Choose an action:\n";
+    int choice;
+    startMenu(std::cin, headDecision, choice);
+    //std::cout << headDecision << std::endl;
+
+    
+    //std::cin >> choice;
+    std::cin.ignore();
+
 
 
 
