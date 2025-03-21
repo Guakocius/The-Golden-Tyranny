@@ -16,7 +16,7 @@ struct GameState {
 void gameLoop() {
 
 }
-//TODO: Implement the load game function. 
+//TODO: Implement the load game function.
 void saveGame(const GameState& state) {
 
     std::ofstream file("savegame.sav", std::ios::binary);
@@ -103,7 +103,7 @@ int main() {
     startMenu(std::cin, headDecision, choice);
     //std::cout << headDecision << std::endl;
 
-    
+
     //std::cin >> choice;
     std::cin.ignore();
 
