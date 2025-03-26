@@ -1,9 +1,8 @@
 #include "../include/game.h"
 
-namespace game {
+using namespace game;
 
     using StartMenu = GameMenu::StartMenu;
-    void newGame();
     void StartMenu::startMenu(std::istream& input, const std::string& headDecision, int choice) {
 
         std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
@@ -69,4 +68,3 @@ namespace game {
 
     }
 
-}
