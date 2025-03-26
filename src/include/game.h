@@ -1,5 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
+
+#include "player.h"
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -7,7 +10,6 @@
 namespace game {
 
     class GameMenu {
-
     public:
 
         enum class GameState {
@@ -40,7 +42,7 @@ namespace game {
                 void displayMenu();
                 void continueGame();
                 void newGame();
-                void saveGame();
+                void saveGame(SaveData& save);
                 void loadGame();
                 void options();
                 void exitGame();
@@ -49,6 +51,5 @@ namespace game {
 extern GameMenu gameMenu;
 
 }
-
 
 #endif // !GAME_H

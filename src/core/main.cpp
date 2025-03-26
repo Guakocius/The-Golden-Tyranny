@@ -5,33 +5,15 @@
 #include <chrono>
 #include <thread>
 
-game::GameMenu::StartMenu startMenu;
-
-struct GameState {
-
-    std::string playerName;
-    int level;
-    int health;
-};
+using namespace game;
+GameMenu::StartMenu startMenu;
+GameMenu::PauseMenu pauseMenu;
 
 void gameLoop() {
 
 }
 //TODO: Implement the load game function.
-void saveGame(const GameState& state) {
 
-    std::ofstream file("savegame.sav", std::ios::binary);
-
-    if(file.is_open()) {
-        file << state.playerName << "\n"
-             << state.level << "\n"
-             << state.health << "\n";
-        file.close();
-        std::cout << "Game saved." << std::endl;
-    } else {
-        std::cout << "Error: Unable to save game." << std::endl;
-    }
-}
 
 int main() {
 

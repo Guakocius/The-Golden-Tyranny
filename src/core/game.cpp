@@ -1,8 +1,12 @@
 #include "../include/game.h"
+#include "../include/entities.h"
 
 using namespace game;
 
     using StartMenu = GameMenu::StartMenu;
+    using PauseMenu = GameMenu::PauseMenu;
+
+
     void StartMenu::startMenu(std::istream& input, const std::string& headDecision, int choice) {
 
         std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
@@ -30,7 +34,6 @@ using namespace game;
         }
 
     }
-
 
     void StartMenu::newGame() {
 
@@ -68,3 +71,20 @@ using namespace game;
 
     }
 
+void PauseMenu::saveGame(SaveData& save) {
+
+    std::ofstream file("./saves/savegame.sav", std::ios::binary);
+
+    if(file.is_open()) {
+        file << save.playerName << "\n"
+             << save.health << "\n"
+             << save.mana << "\n"
+             << save.level << "\n"
+             << save.experience << "\n"
+             << save.inventory.size() << "\n";
+        file.close();
+        std::cout << "Game saved." << std::endl;
+    } else {
+        std::cout << "Error: Unable to save game." << std::endl;
+    }
+}
