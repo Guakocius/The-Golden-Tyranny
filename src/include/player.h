@@ -8,14 +8,15 @@
 class Player : public Entity {
     public:
 
-        Player(std::string playerName, int health, int mana, int level,  int experience, std::map<std::string, int> inventory);
+        Player(std::string playerName, int health, int mana, int level,  int experience,
+            std::vector<std::pair<std::string, int>> inventory);
 
 
         int getExperience() const { return experience; }
-        std::map<std::string, int> getInventory() const { return inventory; }
+        std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
 
         void setExperience(int experience) { this->experience = experience; }
-        void setInventory(std::map<std::string, int> inventory) { this->inventory = inventory; }
+        void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
         void gainExperience(int experience) { this->experience += experience; }
         void collectLoot(const std::string& lootItem);
@@ -26,7 +27,7 @@ class Player : public Entity {
 
     private:
         int experience;
-        std::map<std::string, int> inventory;
+        std::vector<std::pair<std::string, int>> inventory;
 };
 
 #endif // !PLAYER_H

@@ -14,18 +14,17 @@ class Enemy : public Entity {
             int mana;
             int level;
             std::vector<items::Item> equippedItems;
-            std::vector<std::string> inventory;
+            std::vector<std::pair<std::string, int>> inventory;
             std::vector<std::map<std::string, items::Item>> lootTables;
 
-        }
-        Enemy(EnemyData::name, EnemyData::health, EnemyData::mana, EnemyData::level,
-            EnemyData::equippedItems, EnemyData::inventory, EnemyData::lootTables)
-                : Entity(enemyName, health, mana, level), equippedItems(equippedItems), inventory(inventory), lootTable(lootTable) {};
+        };
+        Enemy(const std::string name, int health, int mana, int level,
+            const std::vector<items::Item>& equippedItems,
+            const std::vector<std::pair<std::string, int>>& inventory,
+            const std::vector<std::map<std::string, items::Item>>& lootTables);
 
         virtual ~Enemy() {};
         void dropLoot();
 };
-
-
 
 #endif // !ENEMY_H

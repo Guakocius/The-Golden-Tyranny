@@ -3,6 +3,9 @@
 
 #include <string>
 #include <map>
+#include <vector>
+#include <fstream>
+#include <iostream>
 
 struct SaveData {
     std::string playerName;
@@ -10,14 +13,19 @@ struct SaveData {
     int mana;
     int level;
     int experience;
-    std::map<std::string, int> inventory;
+    std::vector<std::pair<std::string, int>> inventory;
 
     SaveData() = default;
 
     SaveData(std::string playerName, int health, int mana, int level,
-        int experience, std::map<std::string, int> inventory)
+        int experience, std::vector<std::pair<std::string, int>> inventory)
             : playerName(playerName), health(health), mana(mana), level(level),
                  experience(experience), inventory(inventory) {};
 };
+
+namespace save_load_game {
+    void saveGame();
+    void loadGame();
+}
 
 #endif // !SAVE_H
