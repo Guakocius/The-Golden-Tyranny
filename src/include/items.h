@@ -3,6 +3,7 @@
 
 #include <string>
 #include <random>
+#include <lua.hpp>
 
 namespace items {
 
@@ -28,6 +29,8 @@ namespace items {
             Item();
 
             virtual ~Item() {};
+
+            int addItem(lua_State* L);
 
             void generateRandomItem();
 

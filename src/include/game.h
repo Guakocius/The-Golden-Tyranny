@@ -12,6 +12,7 @@ namespace game {
     public:
 
         enum class GameState {
+            RUNNING,
             EXPLORATION,
             COMBAT,
             PAUSE,

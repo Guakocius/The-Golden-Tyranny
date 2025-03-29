@@ -24,8 +24,8 @@ struct SaveData {
 };
 
 namespace save_load_game {
-    void saveGame();
-    void loadGame();
+    void saveGame(SaveData& save);
+    void loadGame(SaveData& save);
 }
 
 #endif // !SAVE_H

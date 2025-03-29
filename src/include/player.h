@@ -3,14 +3,16 @@
 
 #include "entities.h"
 #include "save.h"
+#include "items.h"
+#include "character.h"
 
 
 class Player : public Entity {
     public:
-
-        Player(std::string playerName, int health, int mana, int level,  int experience,
+        PlayerClass playerClass;
+        std::string className = playerClass.className;
+        Player(std::string playerName, std::string playerClassName, int health, int mana, int level,  int experience,
             std::vector<std::pair<std::string, int>> inventory);
-
 
         int getExperience() const { return experience; }
         std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
