@@ -17,11 +17,17 @@ class Entity {
         int getMana() const { return mana; }
         int getLevel() const { return level; }
         std::string getEntityName() const { return entityName; }
+        std::vector<items::Item> getEquippedItems() const { return equippedItems; }
+        std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
+
+
 
         void setHealth(int health) { this->health = health; }
         void setMana(int mana) { this->mana = mana; }
         void setLevel(int level) { this->level = level; }
         void setEntityName(std::string entityName) { this->entityName = entityName; }
+        void setEquippedItems(std::vector<items::Item> equippedItems) { this->equippedItems = equippedItems; }
+        void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
         void attack();
         void useMagic();
@@ -32,6 +38,8 @@ class Entity {
         int health;
         int mana;
         int level;
+        std::vector<items::Item> equippedItems;
+        std::vector<std::pair<std::string, int>> inventory;
 
 };
 

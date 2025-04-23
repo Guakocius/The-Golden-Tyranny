@@ -7,7 +7,6 @@
 
 class Enemy : public Entity {
     public:
-
         struct EnemyData {
             std::string name;
             int health;
@@ -23,8 +22,13 @@ class Enemy : public Entity {
             const std::vector<std::pair<std::string, int>>& inventory,
             const std::vector<std::map<std::string, items::Item>>& lootTables);
 
-        virtual ~Enemy() {};
+        std::vector<std::map<std::string, items::Item>> getLootTables() const { return lootTables; }
         void dropLoot();
+            virtual ~Enemy() {};
+
+        private:
+            std::vector<std::map<std::string, items::Item>> lootTables;
+
 };
 
 #endif // !ENEMY_H

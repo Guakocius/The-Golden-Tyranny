@@ -3,14 +3,14 @@
 
 using namespace items;
 
-Player::Player(std::string playerName, int health, int mana, int level, int experience,
+Player::Player(std::string playerName, std::string playerClassName, int health, int mana, int level, int experience,
     std::vector<std::pair<std::string, int>> inventory)
     : Entity(playerName, health, mana, level), experience(experience), inventory(inventory) {
         std::string askName = "What is your name?";
         std::cout << askName << std::endl;
         std::cin >> playerName;
 
-        
+
     };
 
 Item::Item() {

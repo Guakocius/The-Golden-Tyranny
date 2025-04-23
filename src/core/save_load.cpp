@@ -9,7 +9,7 @@ void saveGame(SaveData &save)
     size_t len = save.inventory.size();
     size_t lenSave = sizeof(save);
 
-    if (file.is_open())
+    /*if (file.is_open())
     {
 
         for (size_t i = 0; i < lenSave; i++)
@@ -33,13 +33,12 @@ void saveGame(SaveData &save)
         file.close();
         std::cout << "Game saved successfully." << std::endl;
     }
-    else
-    {
+    else {
         std::cout << "Error: Unable to save game." << std::endl;
-    }
+    }*/
 }
 
-void loadGame(SaveData &save)
+/*void loadGame(SaveData &save)
 {
     std::ifstream file("./saves/savegame.sav", std::ios::binary);
 
@@ -55,4 +54,4 @@ void loadGame(SaveData &save)
     {
         std::cout << "Error: Unable to load game." << std::endl;
     }
-}
+}*/

@@ -63,7 +63,30 @@ using namespace game;
     }
 
     void GameMenu::options() {
+        std::cout << "Options Menu\n" << std::endl;
+        std::cout << "1. Gameplay\n2. Audio\n3. Display\n4. Back to Main Menu\n" << std::endl;
+        std::cout.flush();
+        int choice;
 
+        std::cin >> choice;
+        std::cin.ignore();
+        std::cout << "\n";
+
+    // TODO: Implement the options menu's functions
+        switch(choice) {
+            case 1:
+                // gameplayOptions();
+                break;
+            case 2:
+                // audioOptions();
+                break;
+            case 3:
+                // displayOptions();
+                break;
+            case 4:
+                // backToMainMenu();
+                break;
+        }
 
     }
 

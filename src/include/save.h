@@ -21,6 +21,7 @@ struct SaveData {
         int experience, std::vector<std::pair<std::string, int>> inventory)
             : playerName(playerName), health(health), mana(mana), level(level),
                  experience(experience), inventory(inventory) {};
+
 };
 
 namespace save_load_game {
