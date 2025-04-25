@@ -22,21 +22,22 @@ namespace game {
             EXIT_GAME,
         };
 
+        void startMenu(std::istream& input, const std::string& headDecision, int choice);
         void newGame();
         void loadGame();
         void options();
         void exitGame();
 
-        class StartMenu {
+        /*class StartMenu {
             public:
-                void startMenu(std::istream& input, const std::string& headDecision, int choice);
+                
                 void newGame();
                 void loadGame();
                 void options();
                 void exitGame();
 
 
-        };
+        };*/
 
         class PauseMenu {
             public:
@@ -49,8 +50,6 @@ namespace game {
                 void exitGame();
         };
     };
-extern GameMenu gameMenu;
-
 }
 
 #endif // !GAME_H

@@ -3,9 +3,8 @@ CFLAGS = -I./src/include/
 SRC = ./src/
 OBJ = $(patsubst %.cpp, %.o, $(shell find $(SRC) -name "*.cpp"))
 TARGET = the-golden-tyranny
-RMOBJECTS = rm -f $(OBJ)
 
-all: $(TARGET) 
+all: $(TARGET) rm_objects
 
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(TARGET) -lncurses
@@ -14,5 +13,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(TARGET)
 
+rm_objects:
+	rm -f $(OBJ)

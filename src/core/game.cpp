@@ -3,11 +3,10 @@
 
 using namespace game;
 
-    using StartMenu = GameMenu::StartMenu;
-    using PauseMenu = GameMenu::PauseMenu;
+//using StartMenu = GameMenu::StartMenu;
+using PauseMenu = GameMenu::PauseMenu;
 
-
-    void StartMenu::startMenu(std::istream& input, const std::string& headDecision, int choice) {
+    void GameMenu::startMenu(std::istream& input, const std::string& headDecision, int choice) {
 
         std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
         std::cout.flush();
@@ -32,12 +31,10 @@ using namespace game;
                 std::cout << "Invalid choice. Please try again." << std::endl;
                 startMenu(input, headDecision, choice);
                 break;
-                
         }
-
     }
 
-    void StartMenu::newGame() {
+    void GameMenu::newGame() {
 
         std::cout << "Welcome to the world of Apexia!\n" << std::endl;
         std::cout << "For centuries, the Sun Elves of Solarion believed themselves destined to rule. Under the divine mandate\n"
@@ -59,12 +56,14 @@ using namespace game;
         "that even the light of the Sun God cannot prevent?\n" << std::endl;
         std::cout.flush();
 
+
+
     }
 
-    void StartMenu::loadGame() {
+    void GameMenu::loadGame() {
     }
 
-    void StartMenu::options() {
+    void GameMenu::options() {
         std::cout << "Options Menu\n" << std::endl;
         std::cout << "1. Gameplay\n2. Audio\n3. Display\n4. Back to Main Menu\n" << std::endl;
         std::cout.flush();
@@ -92,12 +91,11 @@ using namespace game;
 
     }
 
-    void StartMenu::exitGame() {
+    void GameMenu::exitGame() {
         exit(0);
 
     }
 
 void PauseMenu::saveGame(SaveData& save) {
-
-
 }
+

@@ -6,7 +6,8 @@
 #include <thread>
 
 using namespace game;
-GameMenu::StartMenu startMenu;
+//GameMenu::StartMenu startMenu;
+GameMenu gameMenu;
 GameMenu::PauseMenu pauseMenu;
 
 void gameLoop() {
@@ -19,7 +20,7 @@ int main() {
 
     std::string headDecision = "Choose an action:\n";
     int choice;
-    startMenu.startMenu(std::cin, headDecision, choice);
+    gameMenu.startMenu(std::cin, headDecision, choice);
     std::cin.ignore();
 
     return 0;

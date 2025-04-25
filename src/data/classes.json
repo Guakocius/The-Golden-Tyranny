@@ -5,7 +5,47 @@
             "description": "A strong and resilient fighter, born in the heat of battle. Warriors are skilled in melee combat and can take a lot of damage.",
             "stats": {
                 "health": 150,
-                ""
+                "mana": 0,
+                "stamina": 50,
+                "strength": 40,
+                "dexterity": 20,
+                "intelligence": 10
+            }
+        },
+        {
+            "name": "Mage",
+            "description": "A master of the arcane arts, Mages wield powerful spells to deal damage and control the battlefield. They are fragile but can deal massive damage.",
+            "stats": {
+                "health": 75,
+                "mana": 100,
+                "stamina": 30,
+                "strength": 10,
+                "dexterity": 20,
+                "intelligence": 40
+            }
+        },
+        {
+            "name": "Rogue",
+            "description": "A stealthy and agile fighter, Rogues excel in quick strikes and evasion. They can deal high damage but are vulnerable in direct combat.",
+            "stats": {
+                "health": 100,
+                "mana": 20,
+                "stamina": 75,
+                "strength": 20,
+                "dexterity": 40,
+                "intelligence": 25
+            }
+        },
+        {
+            "name": "Cleric",
+            "description": "A holy warrior who uses divine magic to heal and protect allies. Clerics are versatile and can also deal damage.",
+            "stats": {
+                "health": 120,
+                "mana": 80,
+                "stamina": 50,
+                "strength": 25,
+                "dexterity": 15,
+                "intelligence": 30
             }
         }
     ]
