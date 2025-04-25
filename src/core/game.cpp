@@ -23,14 +23,16 @@ using namespace game;
                 loadGame();
                 break;
             case 3:
-                //options();
+                options();
                 break;
             case 4:
-                //exitGame();
+                exitGame();
                 break;
             default:
                 std::cout << "Invalid choice. Please try again." << std::endl;
+                startMenu(input, headDecision, choice);
                 break;
+                
         }
 
     }
@@ -62,7 +64,7 @@ using namespace game;
     void StartMenu::loadGame() {
     }
 
-    void GameMenu::options() {
+    void StartMenu::options() {
         std::cout << "Options Menu\n" << std::endl;
         std::cout << "1. Gameplay\n2. Audio\n3. Display\n4. Back to Main Menu\n" << std::endl;
         std::cout.flush();
@@ -90,7 +92,8 @@ using namespace game;
 
     }
 
-    void GameMenu::exitGame() {
+    void StartMenu::exitGame() {
+        exit(0);
 
     }
 

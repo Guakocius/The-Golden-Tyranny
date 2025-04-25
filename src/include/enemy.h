@@ -24,7 +24,7 @@ class Enemy : public Entity {
 
         std::vector<std::map<std::string, items::Item>> getLootTables() const { return lootTables; }
         void dropLoot();
-            virtual ~Enemy() {};
+        virtual ~Enemy() {};
 
         private:
             std::vector<std::map<std::string, items::Item>> lootTables;

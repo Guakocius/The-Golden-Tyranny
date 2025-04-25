@@ -19,6 +19,7 @@ namespace game {
             SAFE,
             PLAYER_INJURED,
             PLAYER_DEAD,
+            EXIT_GAME,
         };
 
         void newGame();

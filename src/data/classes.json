@@ -1,0 +1,12 @@
+{
+    "classes": [
+        {
+            "name": "Warrior",
+            "description": "A strong and resilient fighter, born in the heat of battle. Warriors are skilled in melee combat and can take a lot of damage.",
+            "stats": {
+                "health": 150,
+                ""
+            }
+        }
+    ]
+}

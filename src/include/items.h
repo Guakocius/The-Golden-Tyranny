@@ -3,7 +3,7 @@
 
 #include <string>
 #include <random>
-#include <lua.hpp>
+//#include <lua.hpp>
 
 namespace items {
 
@@ -30,7 +30,7 @@ namespace items {
 
             virtual ~Item() {};
 
-            int addItem(lua_State* L);
+            //int addItem(lua_State* L);
 
             void generateRandomItem();
 

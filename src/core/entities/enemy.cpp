@@ -1,10 +1,19 @@
 #include "../../include/enemy.h"
 
 items::Item Item(std::string name, int baseValue, int monetaryValue, items::Rarity rarity, float dropRate);
-Enemy::EnemyData EnemyData(std::string name, int health, int mana, int level,
+/*Enemy::EnemyData EnemyData(std::string name, int health, int mana, int level,
     std::vector<items::Item> equippedItems,
     std::vector<std::pair<std::string, int>> inventory,
-    std::vector<std::map<std::string, items::Item>> lootTables);
+    std::vector<std::map<std::string, items::Item>> lootTables);*/
+
+Enemy::Enemy(const std::string name, int health, int mana, int level,
+    const std::vector<items::Item>& equippedItems,
+    const std::vector<std::pair<std::string, int>>& inventory,
+    const std::vector<std::map<std::string, items::Item>>& lootTables)
+    : Entity(name, health, mana, level), lootTables(lootTables) {
+        this->equippedItems = equippedItems;
+        this->inventory = inventory;
+    }
 
 void Enemy::dropLoot() {
     std::cout << "Loot dropped from " << getEntityName() << ":\n";

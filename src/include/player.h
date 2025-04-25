@@ -11,12 +11,14 @@ class Player : public Entity {
     public:
         PlayerClass playerClass;
         std::string className = playerClass.className;
-        Player(std::string playerName, std::string playerClassName, int health, int mana, int level,  int experience,
+        Player(std::string playerName, std::string playerClassName, int health, int mana, int stamina, int level,  int experience,
             std::vector<std::pair<std::string, int>> inventory);
 
         int getExperience() const { return experience; }
+        int getStamina() const { return stamina; }
         std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
 
+        void setStamina(int stamina) { this->stamina = stamina; }
         void setExperience(int experience) { this->experience = experience; }
         void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
@@ -28,6 +30,7 @@ class Player : public Entity {
         void loadFromSave(const SaveData& save);
 
     private:
+        int stamina;
         int experience;
         std::vector<std::pair<std::string, int>> inventory;
 };

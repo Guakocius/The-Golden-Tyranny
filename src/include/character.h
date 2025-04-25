@@ -14,15 +14,12 @@ struct PlayerClass {
     std::string className;
     int health;
     int mana;
+    int stamina;
     int level;
     int experience;
 };
 
-void setClassName(PlayerClass& playerClass, std::string& className) {
-    playerClass.className = className;
-}
-std::string& getClassName(PlayerClass& playerClass, std::string& className) {
-    return playerClass.className = className;
-}
+void setClassName(PlayerClass& playerClass, std::string& className);
+std::string& getClassName(PlayerClass& playerClass, std::string& className);
 
 #endif // !CHARACTER_H
