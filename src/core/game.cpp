@@ -1,35 +1,48 @@
 #include "../include/game.h"
 #include "../include/entities.h"
+#include <chrono>
+#include <thread>
 
 using namespace game;
 
 //using StartMenu = GameMenu::StartMenu;
 using PauseMenu = GameMenu::PauseMenu;
 
-    void GameMenu::startMenu(std::istream& input, const std::string& headDecision, int choice) {
+    void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
 
         std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
         std::cout.flush();
-        input >> choice;
+        int choice;
+        std::cin >> choice;
         std::cin.ignore();
         std::cout << "\n";
 
         switch(choice) {
             case 1:
-                newGame();
+                std::cout << "Starting a new game..." << std::endl;
+                std::cout.flush();
+                std::this_thread::sleep_for(std::chrono::seconds(2));
+                currMenu = GameMenu::CurrentMenu::NEW_GAME;
+                GameMenu::playerChoice(currMenu);
                 break;
             case 2:
-                loadGame();
+                std::cout << "Loading game..." << std::endl;
+                std::cout.flush();
+                std::this_thread::sleep_for(std::chrono::seconds(2));
+                currMenu = GameMenu::CurrentMenu::LOAD_GAME;
+                GameMenu::playerChoice(currMenu);
                 break;
             case 3:
-                options();
+                currMenu = GameMenu::CurrentMenu::OPTIONS;
+                GameMenu::playerChoice(currMenu);
                 break;
             case 4:
-                exitGame();
+                currMenu = GameMenu::CurrentMenu::EXIT_GAME;
+                GameMenu::playerChoice(currMenu);
                 break;
             default:
                 std::cout << "Invalid choice. Please try again." << std::endl;
-                startMenu(input, headDecision, choice);
+                GameMenu::playerChoice(currMenu);
                 break;
         }
     }
@@ -55,8 +68,58 @@ using PauseMenu = GameMenu::PauseMenu;
         "stands at a crossroads—will it tighten its grip to crush the uprisings, or will its hubris lead to a reckoning\n"
         "that even the light of the Sun God cannot prevent?\n" << std::endl;
         std::cout.flush();
+    }
 
+    void GameMenu::classSelection() {
+        using json = nlohmann::json;
+        std::ifstream file("../data/classes.json");
 
+        while (!file.is_open()) {
+            std::cerr << "Error opening file. Please check the file path." << std::endl;
+            return;
+        }
+        
+        json classData;
+        file >> classData;
+
+        std::cout << "Select your class:\n" << std::endl;
+        const auto& classes = classData["classes"];
+        for (size_t i = 0; i < classes.size(); ++i) {
+            std::cout << i + 1 << ". " << classes[i]["name"] << ": " << classes[i]["description"] << std::endl;
+
+            for (const auto& stat : classes[i]["stats"].items()) {
+                std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
+            }
+            std::cout << std::endl;
+        }
+    }
+
+    void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
+
+        std::cout << "Choose an action:\n" << std::endl;
+        switch(currMenu) {
+            case GameMenu::CurrentMenu::MAIN_MENU:
+                startMenu(currMenu);
+                break;
+            case GameMenu::CurrentMenu::CLASS_SELECTION:
+                classSelection();
+                break;
+            case GameMenu::CurrentMenu::NEW_GAME:
+                newGame();
+                break;
+            case GameMenu::CurrentMenu::LOAD_GAME:
+                loadGame();
+                break;
+            case GameMenu::CurrentMenu::OPTIONS:
+                options();
+                break;
+            case GameMenu::CurrentMenu::EXIT_GAME:
+                exitGame();
+                break;
+            default:
+                std::cout << "Invalid game menu" << std::endl;
+                break;
+        }
 
     }
 

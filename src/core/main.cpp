@@ -6,22 +6,17 @@
 #include <thread>
 
 using namespace game;
-//GameMenu::StartMenu startMenu;
 GameMenu gameMenu;
 GameMenu::PauseMenu pauseMenu;
 
 void gameLoop() {
 
 }
-//TODO: Implement the load game function.
-
 
 int main() {
 
-    std::string headDecision = "Choose an action:\n";
-    int choice;
-    gameMenu.startMenu(std::cin, headDecision, choice);
+    GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::MAIN_MENU;
+    gameMenu.playerChoice(currMenu);
     std::cin.ignore();
-
     return 0;
 }

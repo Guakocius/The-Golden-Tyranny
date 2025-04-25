@@ -13,7 +13,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET) $(OBJ)
 
 rm_objects:
 	rm -f $(OBJ)

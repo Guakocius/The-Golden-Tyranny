@@ -2,9 +2,11 @@
 #define GAME_H
 
 #include "player.h"
-
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <vector>
+#include <nlohmann/json.hpp>
 
 namespace game {
 
@@ -22,23 +24,22 @@ namespace game {
             EXIT_GAME,
         };
 
-        void startMenu(std::istream& input, const std::string& headDecision, int choice);
+        enum class CurrentMenu {
+            MAIN_MENU,
+            CLASS_SELECTION,
+            NEW_GAME,
+            LOAD_GAME,
+            OPTIONS,
+            EXIT_GAME,
+        };
+
+        void startMenu(GameMenu::CurrentMenu currMenu);
+        void classSelection();
+        void playerChoice(GameMenu::CurrentMenu currMenu);
         void newGame();
         void loadGame();
         void options();
         void exitGame();
-
-        /*class StartMenu {
-            public:
-                
-                void newGame();
-                void loadGame();
-                void options();
-                void exitGame();
-
-
-        };*/
-
         class PauseMenu {
             public:
                 void displayMenu();
