@@ -8,10 +8,13 @@ using namespace game;
 //using StartMenu = GameMenu::StartMenu;
 using PauseMenu = GameMenu::PauseMenu;
 
+
+
     void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
 
         std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
         std::cout.flush();
+        
         int choice;
         std::cin >> choice;
         std::cin.ignore();
@@ -68,11 +71,22 @@ using PauseMenu = GameMenu::PauseMenu;
         "stands at a crossroads—will it tighten its grip to crush the uprisings, or will its hubris lead to a reckoning\n"
         "that even the light of the Sun God cannot prevent?\n" << std::endl;
         std::cout.flush();
+
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+
+        std::cout << "Press Enter to continue..." << std::endl;
+        std::cin.ignore();
+
+        while (std::cin.peek() != '\n') {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::cin.ignore();
+        }
+        classSelection();
     }
 
     void GameMenu::classSelection() {
         using json = nlohmann::json;
-        std::ifstream file("../data/classes.json");
+        std::ifstream file("src/data/classes.json");
 
         while (!file.is_open()) {
             std::cerr << "Error opening file. Please check the file path." << std::endl;
