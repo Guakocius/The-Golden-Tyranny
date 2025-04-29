@@ -2,51 +2,60 @@
 #include "../include/entities.h"
 #include <chrono>
 #include <thread>
+#include <string.h>
 
 using namespace game;
 
 //using StartMenu = GameMenu::StartMenu;
 using PauseMenu = GameMenu::PauseMenu;
 
-
+std::string chooseAnAction = "Choose an action: ";
 
     void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
-
-        std::cout << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
-        std::cout.flush();
-        
-        int choice;
-        std::cin >> choice;
-        std::cin.ignore();
-        std::cout << "\n";
-
-        switch(choice) {
-            case 1:
-                std::cout << "Starting a new game..." << std::endl;
-                std::cout.flush();
-                std::this_thread::sleep_for(std::chrono::seconds(2));
-                currMenu = GameMenu::CurrentMenu::NEW_GAME;
-                GameMenu::playerChoice(currMenu);
-                break;
-            case 2:
-                std::cout << "Loading game..." << std::endl;
-                std::cout.flush();
-                std::this_thread::sleep_for(std::chrono::seconds(2));
-                currMenu = GameMenu::CurrentMenu::LOAD_GAME;
-                GameMenu::playerChoice(currMenu);
-                break;
-            case 3:
-                currMenu = GameMenu::CurrentMenu::OPTIONS;
-                GameMenu::playerChoice(currMenu);
-                break;
-            case 4:
-                currMenu = GameMenu::CurrentMenu::EXIT_GAME;
-                GameMenu::playerChoice(currMenu);
-                break;
-            default:
+        while (true) {
+            std::cout << chooseAnAction << "\n" << "1. New Game\n2. Load Game\n3. Options\n4. Exit\n" << std::endl;
+            std::cout.flush();
+            
+            int choice;
+            std::cin >> choice;
+            
+            if (std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "Invalid choice. Please try again." << std::endl;
-                GameMenu::playerChoice(currMenu);
-                break;
+                continue;
+            }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "\n";
+
+            switch(choice) {
+                case 1:
+                    std::cout << "Starting a new game..." << std::endl;
+                    std::cout.flush();
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
+                    currMenu = GameMenu::CurrentMenu::NEW_GAME;
+                    GameMenu::playerChoice(currMenu);
+                    break;
+                case 2:
+                    std::cout << "Loading game..." << std::endl;
+                    std::cout.flush();
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
+                    currMenu = GameMenu::CurrentMenu::LOAD_GAME;
+                    GameMenu::playerChoice(currMenu);
+                    break;
+                case 3:
+                    currMenu = GameMenu::CurrentMenu::OPTIONS;
+                    GameMenu::playerChoice(currMenu);
+                    break;
+                case 4:
+                    currMenu = GameMenu::CurrentMenu::EXIT_GAME;
+                    GameMenu::playerChoice(currMenu);
+                    break;
+                default:
+                    std::cout << "Invalid choice. Please try again." << std::endl;
+                    GameMenu::startMenu(currMenu);
+                    break;
+            }
         }
     }
 
@@ -96,18 +105,20 @@ using PauseMenu = GameMenu::PauseMenu;
         std::cout << "Select your class:\n" << std::endl;
         const auto& classes = classData["classes"];
         for (size_t i = 0; i < classes.size(); ++i) {
-            std::cout << i + 1 << ". " << classes[i]["name"] << ": " << classes[i]["description"] << std::endl;
+            std::cout << i + 1 << ". " << classes[i]["name"] << ":\n" << classes[i]["description"] << std::endl;
 
             for (const auto& stat : classes[i]["stats"].items()) {
                 std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
             }
             std::cout << std::endl;
         }
+        int choice;
+        std::cin >> choice;
+
     }
 
     void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
 
-        std::cout << "Choose an action:\n" << std::endl;
         switch(currMenu) {
             case GameMenu::CurrentMenu::MAIN_MENU:
                 startMenu(currMenu);
