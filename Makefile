@@ -7,7 +7,7 @@ TARGET = the-golden-tyranny
 all: $(TARGET) rm_objects
 
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET) -lncurses
+	$(CC) $(OBJ) -o $(TARGET)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@

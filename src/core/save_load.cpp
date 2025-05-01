@@ -2,8 +2,7 @@
 
 using namespace save_load_game;
 
-void saveGame(SaveData &save)
-{
+void saveGame(SaveData &save) {
     std::ofstream file("./saves/savegame.sav", std::ios::binary);
 
     size_t len = save.inventory.size();

@@ -17,6 +17,7 @@ class Enemy : public Entity {
             std::vector<std::map<std::string, items::Item>> lootTables;
 
         };
+        
         Enemy(const std::string name, int health, int mana, int level,
             const std::vector<items::Item>& equippedItems,
             const std::vector<std::pair<std::string, int>>& inventory,
