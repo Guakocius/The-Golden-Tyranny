@@ -1,7 +1,6 @@
 #include "../include/game.h"
 
 #include <cstdlib>
-#include <curses.h>
 #include <chrono>
 #include <thread>
 

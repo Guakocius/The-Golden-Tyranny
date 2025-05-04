@@ -1,12 +1,13 @@
 #include "../include/game.h"
 #include "../include/entities.h"
+#include "../include/character.h"
+
 #include <chrono>
 #include <thread>
-#include <string.h>
+#include <string>
 
 using namespace game;
 
-// using StartMenu = GameMenu::StartMenu;
 using PauseMenu = GameMenu::PauseMenu;
 
 std::string chooseAnAction = "Choose an action: ";
@@ -95,6 +96,8 @@ void GameMenu::newGame() {
 
 void GameMenu::classSelection() {
     using json = nlohmann::json;
+
+    std::string playerName;
     std::ifstream file("src/data/classes.json");
 
     while (!file.is_open()) {
@@ -104,6 +107,10 @@ void GameMenu::classSelection() {
 
     json classData;
     file >> classData;
+
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, playerName);
+    std::cout << "\n";
 
     std::cout << "Select your class:\n" << std::endl;
     const auto& classes = classData["classes"];
@@ -118,6 +125,28 @@ void GameMenu::classSelection() {
     }
     int choice;
     std::cin >> choice;
+
+    if (choice > 0 && choice <= static_cast<int>(classes.size())) {
+        const auto& selectedClass = classes[choice - 1];
+        std::cout << "You have selected the " << selectedClass["name"] << " class:\n"
+                  << selectedClass["description"] << std::endl;
+
+        PlayerClass playerClass {
+            selectedClass["name"],
+            selectedClass["health"],
+            selectedClass["mana"],
+            selectedClass["stamina"],
+            selectedClass["strength"],
+            selectedClass["dexterity"],
+            selectedClass["intelligence"]
+        };
+
+        std::cout << "Stats:\n";
+        for (const auto& stat : selectedClass["stats"].items()) {
+            std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
+        }
+        Player::Player player(playerName, playerClass, )
+    }
 }
 
 void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {

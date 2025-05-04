@@ -40,7 +40,7 @@ namespace game {
         void loadGame();
         void options();
         void exitGame();
-        
+
         struct PauseMenu {
             public:
                 void displayMenu();
