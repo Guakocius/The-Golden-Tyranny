@@ -18,7 +18,33 @@ class Entity {
         int getMana() const { return mana; }
         int getLevel() const { return level; }
         std::string getEntityName() const { return entityName; }
-        std::vector<items::Item> getEquippedItems() const { return equippedItems; }
+        items::Item getEquippedItems(items::ItemSlot slot) const {
+            auto idx = equippedItems.find(slot);
+            if (idx != equippedItems.end()) {
+                return idx->second;
+            }
+        }
+
+        void equipItem(items::ItemSlot slot, const items::Item& item) { equippedItems[slot] = item; }
+        void unequipItem(items::ItemSlot slot) { equippedItems.erase(slot); }
+        void swapItem(items::ItemSlot slot, items::Item& equippedItem,
+            items::Item& equippableItem) {
+                auto idx = equippedItems.find(slot);
+                if (idx != equippedItems.end()) {
+
+                    if (idx->second.name == equippedItem.name) {
+                        idx->second = equippableItem;
+                        equippableItem = equippedItem;
+                    } else {
+                        std::cerr << "Error: The equipped item in the slot "
+                            << "does not match the provided item." << std::endl;
+                    }
+                } else {
+                    std::cerr << "No item is equipped in the specified slot"
+                        << std::endl;
+                }
+            }
+
         std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
 
 
@@ -31,7 +57,7 @@ class Entity {
         void setMana(int mana) { this->mana = mana; }
         void setLevel(int level) { this->level = level; }
         void setEntityName(std::string entityName) { this->entityName = entityName; }
-        void setEquippedItems(std::vector<items::Item> equippedItems) { this->equippedItems = equippedItems; }
+        void setEquippedItems(std::map<items::ItemSlot, items::Item> equippedItems) { this->equippedItems = equippedItems; }
         void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
         /**
@@ -52,7 +78,7 @@ class Entity {
         int health;
         int mana;
         int level;
-        std::vector<items::Item> equippedItems;
+        std::map<items::ItemSlot, items::Item> equippedItems;
         std::vector<std::pair<std::string, int>> inventory;
 
 };

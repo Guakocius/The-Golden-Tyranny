@@ -7,6 +7,13 @@
 
 namespace items {
 
+    enum class ItemSlot {
+        WEAPON,
+        ARMOR,
+        TRINKET,
+        CONSUMABLE
+    };
+
     enum class Rarity {
         COMMON,
         UNCOMMON,

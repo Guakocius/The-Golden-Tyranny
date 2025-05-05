@@ -23,6 +23,12 @@ class Player : public Entity {
 
         int getExperience() const { return experience; }
         int getStamina() const { return stamina; }
+        int getDamage() const {
+            int damage = 0;
+            if (!equippedItems.empty()) {
+                damage = equippedItems[0].getDamage();
+            }
+        }
         std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
         PlayerClass getPlayerClass() const { return playerClass; }
 

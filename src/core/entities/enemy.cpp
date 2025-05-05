@@ -38,6 +38,6 @@ void Enemy::dropLoot() {
 
 void Entity::attack() {
     if (!checkEntity(this)) {
-        
+
     }
 }
