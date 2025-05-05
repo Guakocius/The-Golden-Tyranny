@@ -1,6 +1,7 @@
 #include "../include/game.h"
 #include "../include/entities.h"
 #include "../include/character.h"
+#include "../include/player.h"
 
 #include <chrono>
 #include <thread>

@@ -1,8 +1,13 @@
 #include "../../include/player.h"
 #include "../../include/character.h"
 #include "../../include/game.h"
+#include "../../include/items.h"
 
-
+void Entity::attack() {
+    if (checkEntity(this)) {
+        
+    }
+}
 /*SaveData Player::getSaveData() const {
     return SaveData(health, mana, level, entityName, experience, inventory);
 }

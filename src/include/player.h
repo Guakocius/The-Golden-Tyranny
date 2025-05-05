@@ -47,4 +47,6 @@ class Player : public Entity {
         std::vector<std::pair<std::string, int>> inventory;
 };
 
+extern Player player;
+
 #endif // !PLAYER_H

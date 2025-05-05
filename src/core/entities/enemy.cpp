@@ -35,3 +35,9 @@ void Enemy::dropLoot() {
         std::cout << collectedLoot.second << "x " << collectedLoot.first << "\n";
     }
 }
+
+void Entity::attack() {
+    if (!checkEntity(this)) {
+        
+    }
+}
