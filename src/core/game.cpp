@@ -145,7 +145,7 @@ void GameMenu::classSelection() {
         for (const auto& stat : selectedClass["stats"].items()) {
             std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
         }
-        Player::Player player(playerName, playerClass, )
+        Player player(playerName, playerClass, 1, 0, {});
     }
 }
 

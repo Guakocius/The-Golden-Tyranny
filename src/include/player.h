@@ -12,7 +12,14 @@ class Player : public Entity {
         PlayerClass playerClass;
         std::string className = playerClass.className;
         Player(std::string playerName, PlayerClass playerClass, int level,  int experience,
-            std::vector<std::pair<std::string, int>> inventory);
+            std::vector<std::pair<std::string, int>> inventory)
+        : Entity(playerName, playerClass.health, playerClass.mana, level),
+          playerClass(playerClass), experience(experience), inventory(inventory) {
+            this->stamina = playerClass.stamina;
+            this->strength = playerClass.strength;
+            this->dexterity = playerClass.dexterity;
+            this->intelligence = playerClass.intelligence;
+          };
 
         int getExperience() const { return experience; }
         int getStamina() const { return stamina; }
@@ -33,6 +40,9 @@ class Player : public Entity {
 
     private:
         int stamina;
+        int strength;
+        int dexterity;
+        int intelligence;
         int experience;
         std::vector<std::pair<std::string, int>> inventory;
 };
