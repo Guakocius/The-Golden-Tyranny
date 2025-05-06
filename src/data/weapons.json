@@ -1,0 +1,15 @@
+{
+    "weapons": [
+        {
+            "name": "",
+            "baseValue": 0,
+            "monetaryValue": 0,
+            "rarity": "0",
+            "dropRate": 0,
+            "damage": 0
+        },
+        {
+
+        }
+    ]
+}
