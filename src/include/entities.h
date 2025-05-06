@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <map>
+#include <iostream>
 
 class Entity {
     public:

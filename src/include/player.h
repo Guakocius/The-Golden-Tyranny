@@ -25,8 +25,18 @@ class Player : public Entity {
         int getStamina() const { return stamina; }
         int getDamage() const {
             int damage = 0;
-            if (!equippedItems.empty()) {
-                damage = equippedItems[0].getDamage();
+            auto weapon = equippedItems.find(items::ItemSlot::WEAPON);
+
+            if (weapon != equippedItems.end()) {
+                damage = weapon->second.baseValue;
+
+                if (className == "Warrior") {
+                    damage += strength;
+                } else if (className == "Rogue") {
+                    damage += dexterity;
+                } else if (className == "Mage") {
+                    damage += intelligence;
+                }
             }
         }
         std::vector<std::pair<std::string, int>> getInventory() const { return inventory; }
