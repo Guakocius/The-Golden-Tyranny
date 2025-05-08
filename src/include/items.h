@@ -28,7 +28,7 @@ namespace items {
             int baseValue;
             int monetaryValue;
             Rarity rarity;
-            float dropRate(Rarity rarity) const {
+            float dropRate(Rarity rarity) {
                 switch (rarity) {
                     case Rarity::COMMON: return 0.9f;
                     case Rarity::UNCOMMON: return 0.7f;
@@ -39,8 +39,10 @@ namespace items {
                 }
             };
 
-            Item(std::string name, int baseValue, int monetaryValue, Rarity rarity, float *dropRate(Rarity rarity))
-                : name(name), baseValue(baseValue), monetaryValue(monetaryValue), rarity(rarity), dropRate(dropRate) {};
+            float rarityDropRate = dropRate(rarity);
+
+            Item(std::string name, int baseValue, int monetaryValue, Rarity rarity, float rarityDropRate)
+                : name(name), baseValue(baseValue), monetaryValue(monetaryValue), rarity(rarity), rarityDropRate(rarityDropRate) {};
 
             Item();
 
@@ -53,8 +55,6 @@ namespace items {
         private:
             void randomizeItem(float *dropRate(Rarity rarity));
             std::string rarityToString(Rarity rarity) const;
-
-
     };
 };
 
