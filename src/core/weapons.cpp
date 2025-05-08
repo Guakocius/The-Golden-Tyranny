@@ -3,14 +3,14 @@
 #include <fstream>
 #include <iostream>
 
-std::vector<Weapon> Weapon::loadWeapons(const std::string& fp) {
+std::vector<Weapon> Weapon::loadWeapons() {
     using json = nlohmann::json;
 
     std::vector<Weapon> vweapons;
-    std::ifstream file(fp);
+    std::ifstream file("/src/data/items.json");
 
     if (!file.is_open()) {
-        std::cerr << "Error opening file: " << fp << std::endl;
+        std::cerr << "Error opening file: " << &file << std::endl;
         return vweapons;
     }
 
