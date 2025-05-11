@@ -2,7 +2,7 @@
 #define ENTITIES_H
 
 #include "items.h"
-#include "player.h"
+
 
 #include <vector>
 #include <map>
@@ -19,12 +19,7 @@ class Entity {
         int getMana() const { return mana; }
         int getLevel() const { return level; }
         std::string getEntityName() const { return entityName; }
-        items::Item getEquippedItems(items::ItemSlot slot) const {
-            auto idx = equippedItems.find(slot);
-            if (idx != equippedItems.end()) {
-                return idx->second;
-            }
-        }
+        std::map<items::ItemSlot, items::Item> getEquippedItems(std::map<items::ItemSlot, items::Item> equippedItems) const;
 
         void equipItem(items::ItemSlot slot, const items::Item& item) { equippedItems[slot] = item; }
         void unequipItem(items::ItemSlot slot) { equippedItems.erase(slot); }
@@ -52,8 +47,6 @@ class Entity {
         int damage;
         int getDamage() const { return damage; }
 
-
-
         void setHealth(int health) { this->health = health; }
         void setMana(int mana) { this->mana = mana; }
         void setLevel(int level) { this->level = level; }
@@ -66,9 +59,7 @@ class Entity {
          * @param Entity* entity
          * @return (entity == Player) ? 1 : 0
          */
-        bool checkEntity(Entity* entity) const {
-            return dynamic_cast<Player*>(entity) != nullptr;
-        }
+        bool checkEntity(Entity* entity) const;
 
         void attack();
         void useMagic();

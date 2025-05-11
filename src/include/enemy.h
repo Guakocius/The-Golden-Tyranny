@@ -12,14 +12,14 @@ class Enemy : public Entity {
             int health;
             int mana;
             int level;
-            std::vector<items::Item> equippedItems;
+            std::map<items::ItemSlot, items::Item> equippedItems;
             std::vector<std::pair<std::string, int>> inventory;
             std::vector<std::map<std::string, items::Item>> lootTables;
 
         };
         
         Enemy(const std::string name, int health, int mana, int level,
-            const std::vector<items::Item>& equippedItems,
+            const std::map<items::ItemSlot, items::Item> equippedItems,
             const std::vector<std::pair<std::string, int>>& inventory,
             const std::vector<std::map<std::string, items::Item>>& lootTables);
 
