@@ -113,7 +113,6 @@ void GameMenu::classSelection() {
     std::getline(std::cin, playerName);
     std::cout << "\n";
 
-    std::cout << "Select your class:\n" << std::endl;
     const auto& classes = classData["classes"];
     for (size_t i = 0; i < classes.size(); ++i) {
         std::cout << i + 1 << ". " << classes[i]["name"] << ":\n"
@@ -124,6 +123,9 @@ void GameMenu::classSelection() {
         }
         std::cout << std::endl;
     }
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cout << "Select your class:\n" << std::endl;
+
     int choice;
     std::cin >> choice;
 
@@ -132,21 +134,23 @@ void GameMenu::classSelection() {
         std::cout << "You have selected the " << selectedClass["name"] << " class:\n"
                   << selectedClass["description"] << std::endl;
 
-        PlayerClass playerClass {
-            selectedClass["name"],
-            selectedClass["health"],
-            selectedClass["mana"],
-            selectedClass["stamina"],
-            selectedClass["strength"],
-            selectedClass["dexterity"],
-            selectedClass["intelligence"]
-        };
-
         std::cout << "Stats:\n";
         for (const auto& stat : selectedClass["stats"].items()) {
             std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
         }
+
+        PlayerClass playerClass {
+            selectedClass["name"],
+            selectedClass["stats"]["health"],
+            selectedClass["stats"]["mana"],
+            selectedClass["stats"]["stamina"],
+            selectedClass["stats"]["strength"],
+            selectedClass["stats"]["dexterity"],
+            selectedClass["stats"]["intelligence"]
+        };
         Player player(playerName, playerClass, 1, 0, {});
+
+        
     }
 }
 
