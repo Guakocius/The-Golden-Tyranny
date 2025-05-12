@@ -149,9 +149,9 @@ void GameMenu::classSelection() {
             selectedClass["stats"]["intelligence"]
         };
         Player player(playerName, playerClass, 1, 0, {});
-
-        
     }
+    GameMenu::GameState state = GameMenu::GameState::EXPLORATION;
+    GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::GAME_MENU;
 }
 
 void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {

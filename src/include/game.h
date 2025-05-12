@@ -27,6 +27,7 @@ namespace game {
         enum class CurrentMenu {
             MAIN_MENU,
             CLASS_SELECTION,
+            GAME_MENU,
             NEW_GAME,
             LOAD_GAME,
             OPTIONS,
