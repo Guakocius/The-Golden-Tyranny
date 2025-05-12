@@ -54,11 +54,7 @@ class Entity {
         void setEquippedItems(std::map<items::ItemSlot, items::Item> equippedItems) { this->equippedItems = equippedItems; }
         void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
-        /**
-         * @brief Checks what entity type it is
-         * @param Entity* entity
-         * @return (entity == Player) ? 1 : 0
-         */
+       
         bool checkEntity(Entity* entity) const;
 
         void attack();

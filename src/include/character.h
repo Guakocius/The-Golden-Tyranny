@@ -1,8 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "player.h"
-#include "game.h"
+#include <string>
 
 struct Stats {
     int strength;
@@ -20,7 +19,7 @@ struct PlayerClass {
     int intelligence;
 };
 
-void setClassName(PlayerClass& playerClass, std::string className) { playerClass.className = className; };
-std::string& getClassName(PlayerClass& playerClass, std::string& className) { return playerClass.className = className; };
+void setClassName(PlayerClass playerClass, std::string className);
+std::string getClassName(PlayerClass playerClass, std::string className);
 
 #endif // !CHARACTER_H

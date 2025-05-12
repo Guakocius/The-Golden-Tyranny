@@ -41,8 +41,8 @@ namespace items {
 
             float rarityDropRate = dropRate(rarity);
 
-            Item(std::string name, int baseValue, int monetaryValue, Rarity rarity, float rarityDropRate)
-                : name(name), baseValue(baseValue), monetaryValue(monetaryValue), rarity(rarity), rarityDropRate(rarityDropRate) {};
+            Item(std::string name, int baseValue, int monetaryValue, Rarity rarity, float dropRate)
+                : name(name), baseValue(baseValue), monetaryValue(monetaryValue), rarity(rarity), rarityDropRate(dropRate) {};
 
             Item();
 
@@ -50,11 +50,11 @@ namespace items {
 
             //int addItem(lua_State* L);
 
-            void generateRandomItem();
+            void randomizeItem(float rarityDropRate);
+            // generateRandomItem();
 
         private:
-            void randomizeItem(float *dropRate(Rarity rarity));
-            std::string rarityToString(Rarity rarity) const;
+            std::string rarityToString(Rarity rarity);
     };
 };
 

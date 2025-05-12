@@ -18,13 +18,17 @@ std::vector<Weapon> Weapon::loadWeapons() {
     file >> weaponData;
 
     for (const auto& weapons : weaponData["weapons"]) {
+
+        items::Rarity rarity = static_cast<items::Rarity>(weapons["rarity"]);
+
+        float dropRate = items::Item().dropRate(rarity);
         Weapon weapon(
-            weapons["name"],
-            weapons["baseValue"],
-            weapons["monetaryValue"],
-            static_cast<items::Rarity>(weapons["rarity"]),
-            weapons["dropRate"],
-            weapons["damage"]
+            weapons["name"].get<std::string>(),
+            weapons["baseValue"].get<int>(),
+            weapons["monetaryValue"].get<int>(),
+            rarity,
+            dropRate,
+            weapons["damage"].get<int>()
         );
         vweapons.push_back(weapon);
     }

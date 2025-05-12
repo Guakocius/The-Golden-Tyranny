@@ -3,11 +3,6 @@
 #include "../../include/game.h"
 #include "../../include/items.h"
 
-void Entity::attack() {
-    if (checkEntity(this)) {
-        
-    }
-}
 /*SaveData Player::getSaveData() const {
     return SaveData(health, mana, level, entityName, experience, inventory);
 }
@@ -42,7 +37,3 @@ int getDamage(Player player, std::map<items::ItemSlot, items::Item> equippedItem
             }
             return damage;
         }
-
-bool checkEntity(Entity* entity) {
-    return dynamic_cast<Player*>(entity) != nullptr;
-}
