@@ -152,6 +152,11 @@ void GameMenu::classSelection() {
     }
     GameMenu::GameState state = GameMenu::GameState::EXPLORATION;
     GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::GAME_MENU;
+    playerChoice(currMenu);
+}
+
+void GameMenu::exploration() {
+    std::cout << "Test";
 }
 
 void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
@@ -161,6 +166,9 @@ void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
             break;
         case GameMenu::CurrentMenu::CLASS_SELECTION:
             classSelection();
+            break;
+        case GameMenu::CurrentMenu::GAME_MENU:
+            exploration();
             break;
         case GameMenu::CurrentMenu::NEW_GAME:
             newGame();

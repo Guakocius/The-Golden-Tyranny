@@ -36,6 +36,7 @@ namespace game {
 
         void startMenu(GameMenu::CurrentMenu currMenu);
         void classSelection();
+        void exploration();
         void playerChoice(GameMenu::CurrentMenu currMenu);
         void newGame();
         void loadGame();
