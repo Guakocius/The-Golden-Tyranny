@@ -1,5 +1,5 @@
-#ifndef ITEMS_H
-#define ITEMS_H
+#ifndef ITEMS_HPP
+#define ITEMS_HPP
 
 #include <string>
 #include <random>
@@ -58,4 +58,4 @@ namespace items {
     };
 };
 
-#endif // !ITEMS_H
+#endif // !ITEMS_HPP

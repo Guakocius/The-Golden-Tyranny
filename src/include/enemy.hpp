@@ -1,5 +1,5 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
 #include "entities.hpp"
 
@@ -32,4 +32,4 @@ class Enemy : public Entity {
 
 };
 
-#endif // !ENEMY_H
+#endif // !ENEMY_HPP

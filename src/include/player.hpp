@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
 #include "entities.hpp"
 #include "save.hpp"
@@ -50,4 +50,4 @@ class Player : public Entity {
 
 extern Player player;
 
-#endif // !PLAYER_H
+#endif // !PLAYER_HPP

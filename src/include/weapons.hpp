@@ -1,3 +1,6 @@
+#ifndef WEAPONS_HPP
+#define WEAPONS_HPP
+
 #include "items.hpp"
 #include <nlohmann/json.hpp>
 
@@ -16,3 +19,5 @@ class Weapon : public items::Item {
 
         int damage;
 };
+
+#endif // WEAPONS_HPP

@@ -1,5 +1,5 @@
-#ifndef ENTITIES_H
-#define ENTITIES_H
+#ifndef ENTITIES_HPP
+#define ENTITIES_HPP
 
 #include "items.hpp"
 
@@ -71,4 +71,4 @@ class Entity {
 
 };
 
-#endif // !ENTITIES_H
+#endif // !ENTITIES_HPP

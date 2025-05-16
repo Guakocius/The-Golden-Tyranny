@@ -1,3 +1,3 @@
-#ifndef EXPLORATION_H
+#ifndef EXPLORATION_HPP
 
-#endif // !EXPLORATION_H
+#endif // !EXPLORATION_HPP

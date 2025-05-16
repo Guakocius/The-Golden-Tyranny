@@ -1,4 +1,4 @@
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef WORLD_HPP
+#define WORLD_HPP
 
-#endif // !WORLD_H
+#endif // !WORLD_HPP

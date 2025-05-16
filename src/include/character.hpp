@@ -1,5 +1,5 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
 #include <string>
 
@@ -22,4 +22,4 @@ struct PlayerClass {
 void setClassName(PlayerClass playerClass, std::string className);
 std::string getClassName(PlayerClass playerClass, std::string className);
 
-#endif // !CHARACTER_H
+#endif // !CHARACTER_HPP

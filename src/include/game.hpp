@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef GAME_HPP
+#define GAME_HPP
 
 #include "player.hpp"
 #include <iostream>
@@ -56,4 +56,4 @@ namespace game {
     };
 }
 
-#endif // !GAME_H
+#endif // !GAME_HPP

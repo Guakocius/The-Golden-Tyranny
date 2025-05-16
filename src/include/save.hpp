@@ -1,5 +1,5 @@
-#ifndef SAVE_H
-#define SAVE_H
+#ifndef SAVE_HPP
+#define SAVE_HPP
 
 #include <string>
 #include <map>
