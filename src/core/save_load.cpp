@@ -1,4 +1,4 @@
-#include "../include/save.h"
+#include "../include/save.hpp"
 
 using namespace save_load_game;
 
@@ -20,7 +20,7 @@ void saveGame(SaveData &save) {
         }
 
         file << save.playerName << "\n"
-             << save.health << "\n"
+             << save.hppealth << "\n"
              << save.mana << "\n"
              << save.level << "\n"
              << save.experience << std::endl;
@@ -44,7 +44,7 @@ void saveGame(SaveData &save) {
     if (file.is_open())
     {
 
-        file >> save.playerName >> save.health >> save.mana >> save.level >> save.experience >> save.inventory;
+        file >> save.playerName >> save.hppealth >> save.mana >> save.level >> save.experience >> save.inventory;
 
         file.close();
         std::cout << "Game loaded successfully." << std::endl;

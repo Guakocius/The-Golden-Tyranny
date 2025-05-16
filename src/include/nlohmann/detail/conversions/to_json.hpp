@@ -269,7 +269,7 @@ template<typename BasicJsonType, typename T,
          enable_if_t<std::is_constructible<BasicJsonType, T>::value, int> = 0>
 void to_json(BasicJsonType& j, const std::optional<T>& opt)
 {
-    if (opt.has_value())
+    if (opt.hppas_value())
     {
         j = *opt;
     }
@@ -466,7 +466,7 @@ struct to_json_fn
 #ifndef JSON_HAS_CPP_17
 /// namespace to hold default `to_json` function
 /// to see why this is required:
-/// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html
+/// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.hpptml
 namespace // NOLINT(cert-dcl59-cpp,fuchsia-header-anon-namespaces,google-build-namespaces)
 {
 #endif

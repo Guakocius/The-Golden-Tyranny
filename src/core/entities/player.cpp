@@ -1,14 +1,14 @@
-#include "../../include/player.h"
-#include "../../include/character.h"
-#include "../../include/game.h"
-#include "../../include/items.h"
+#include "../../include/player.hpp"
+#include "../../include/character.hpp"
+#include "../../include/game.hpp"
+#include "../../include/items.hpp"
 
 /*SaveData Player::getSaveData() const {
     return SaveData(health, mana, level, entityName, experience, inventory);
 }
 
 void Player::loadFromSave(const SaveData& save) {
-    health = save.health;
+    health = save.hppealth;
     mana = save.mana;
     level = save.level;
     entityName = save.playerName;

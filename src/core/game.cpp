@@ -1,7 +1,7 @@
-#include "../include/game.h"
-#include "../include/entities.h"
-#include "../include/character.h"
-#include "../include/player.h"
+#include "../include/game.hpp"
+#include "../include/entities.hpp"
+#include "../include/character.hpp"
+#include "../include/player.hpp"
 
 #include <chrono>
 #include <thread>
@@ -10,6 +10,7 @@
 using namespace game;
 
 using PauseMenu = GameMenu::PauseMenu;
+std::string invalidChoice = "Invalid choice. Please try again.";
 
 std::string chooseAnAction = "Choose an action: ";
 
@@ -26,7 +27,7 @@ void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << invalidChoice << std::endl;
             continue;
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -56,7 +57,7 @@ void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
                 GameMenu::playerChoice(currMenu);
                 break;
             default:
-                std::cout << "Invalid choice. Please try again." << std::endl;
+                std::cout << invalidChoice << std::endl;
                 GameMenu::startMenu(currMenu);
                 break;
         }
@@ -214,6 +215,10 @@ void GameMenu::options() {
             break;
         case 4:
             // backToMainMenu();
+            break;
+        default:
+            std::cout << invalidChoice << std::endl;
+            GameMenu::options();
             break;
     }
 }

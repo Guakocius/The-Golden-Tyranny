@@ -1,6 +1,6 @@
-#include "../../include/entities.h"
-#include "../../include/player.h"
-#include "../../include/items.h"
+#include "../../include/entities.hpp"
+#include "../../include/player.hpp"
+#include "../../include/items.hpp"
 
 /*items::Item getEquippedItems(items::ItemSlot slot) const {
             auto idx = equippedItems.find(slot);

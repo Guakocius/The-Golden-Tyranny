@@ -109,7 +109,7 @@ std::size_t hash(const BasicJsonType& j)
         case BasicJsonType::value_t::binary:
         {
             auto seed = combine(type, j.get_binary().size());
-            const auto h = std::hash<bool> {}(j.get_binary().has_subtype());
+            const auto h = std::hash<bool> {}(j.get_binary().hppas_subtype());
             seed = combine(seed, h);
             seed = combine(seed, static_cast<std::size_t>(j.get_binary().subtype()));
             for (const auto byte : j.get_binary())

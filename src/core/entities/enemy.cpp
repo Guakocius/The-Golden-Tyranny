@@ -1,5 +1,5 @@
-#include "../../include/enemy.h"
-#include "../../include/items.h"
+#include "../../include/enemy.hpp"
+#include "../../include/items.hpp"
 
 items::Item Item(std::string name, int baseValue, int monetaryValue, items::Rarity rarity, float dropRate);
 /*Enemy::EnemyData EnemyData(std::string name, int health, int mana, int level,

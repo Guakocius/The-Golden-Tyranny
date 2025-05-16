@@ -1,10 +1,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "entities.h"
-#include "save.h"
-#include "items.h"
-#include "character.h"
+#include "entities.hpp"
+#include "save.hpp"
+#include "items.hpp"
+#include "character.hpp"
 
 
 class Player : public Entity {

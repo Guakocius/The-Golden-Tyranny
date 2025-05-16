@@ -254,7 +254,7 @@ struct conjunction<B, Bn...>
 template<class B> struct negation : std::integral_constant < bool, !B::value > { };
 
 // Reimplementation of is_constructible and is_default_constructible, due to them being broken for
-// std::pair and std::tuple until LWG 2367 fix (see https://cplusplus.github.io/LWG/lwg-defects.html#2367).
+// std::pair and std::tuple until LWG 2367 fix (see https://cplusplus.github.io/LWG/lwg-defects.hpptml#2367).
 // This causes compile errors in e.g. clang 3.5 or gcc 4.9.
 template <typename T>
 struct is_default_constructible : std::is_default_constructible<T> {};

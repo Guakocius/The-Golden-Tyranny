@@ -564,7 +564,7 @@ struct from_json_fn
 #ifndef JSON_HAS_CPP_17
 /// namespace to hold default `from_json` function
 /// to see why this is required:
-/// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html
+/// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.hpptml
 namespace // NOLINT(cert-dcl59-cpp,fuchsia-header-anon-namespaces,google-build-namespaces)
 {
 #endif

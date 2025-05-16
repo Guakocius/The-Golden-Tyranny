@@ -1,7 +1,7 @@
 #ifndef ENTITIES_H
 #define ENTITIES_H
 
-#include "items.h"
+#include "items.hpp"
 
 
 #include <vector>
@@ -54,7 +54,7 @@ class Entity {
         void setEquippedItems(std::map<items::ItemSlot, items::Item> equippedItems) { this->equippedItems = equippedItems; }
         void setInventory(std::vector<std::pair<std::string, int>> inventory) { this->inventory = inventory; }
 
-       
+
         bool checkEntity(Entity* entity) const;
 
         void attack();

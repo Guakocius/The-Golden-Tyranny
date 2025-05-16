@@ -1,6 +1,6 @@
-#include "../include/items.h"
-#include "../include/player.h"
-#include "../include/entities.h"
+#include "../include/items.hpp"
+#include "../include/player.hpp"
+#include "../include/entities.hpp"
 
 using namespace items;
 

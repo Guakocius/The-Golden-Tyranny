@@ -1,4 +1,4 @@
-#include "../include/weapons.h"
+#include "../include/weapons.hpp"
 
 #include <fstream>
 #include <iostream>
