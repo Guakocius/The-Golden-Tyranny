@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include "player.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -9,6 +10,8 @@
 #include <nlohmann/json.hpp>
 
 namespace game {
+    
+    bool dialogueShown;
 
     class GameMenu {
     public:
@@ -55,5 +58,6 @@ namespace game {
         };
     };
 }
+extern game::dialogueShown dialogueShown;
 
 #endif // !GAME_HPP

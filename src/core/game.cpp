@@ -13,6 +13,7 @@ using PauseMenu = GameMenu::PauseMenu;
 std::string invalidChoice = "Invalid choice. Please try again.";
 
 std::string chooseAnAction = "Choose an action: ";
+dialogueShown = false;
 
 void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
     while (true) {
@@ -157,7 +158,17 @@ void GameMenu::classSelection() {
 }
 
 void GameMenu::exploration() {
-    std::cout << "Test";
+    dialogueShown = false;
+
+    while (true) {
+        if (!dialogueShown) {
+            std::cout << "Test" << std::endl;
+            dialogueShown = true;
+        }
+        
+
+    }
+    
 }
 
 void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
