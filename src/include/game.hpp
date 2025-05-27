@@ -7,11 +7,9 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 namespace game {
-    
-    bool dialogueShown;
 
     class GameMenu {
     public:
@@ -30,7 +28,7 @@ namespace game {
         enum class CurrentMenu {
             MAIN_MENU,
             CLASS_SELECTION,
-            GAME_MENU,
+            EXPLORATION_MENU,
             NEW_GAME,
             LOAD_GAME,
             OPTIONS,
@@ -58,6 +56,5 @@ namespace game {
         };
     };
 }
-extern game::dialogueShown dialogueShown;
 
 #endif // !GAME_HPP

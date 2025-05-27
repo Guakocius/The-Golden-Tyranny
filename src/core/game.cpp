@@ -1,7 +1,5 @@
-#include "../include/game.hpp"
-#include "../include/entities.hpp"
-#include "../include/character.hpp"
 #include "../include/player.hpp"
+#include "../include/exploration.hpp"
 
 #include <chrono>
 #include <thread>
@@ -11,9 +9,13 @@ using namespace game;
 
 using PauseMenu = GameMenu::PauseMenu;
 std::string invalidChoice = "Invalid choice. Please try again.";
+Exploration::Room room = {"Mainland", 1};
 
 std::string chooseAnAction = "Choose an action: ";
-dialogueShown = false;
+Exploration::ExplorationHeartlands eh;
+PlayerClass playerClass({});
+Player player("DefaultName", playerClass, 1, 0, {});
+Exploration e = {player, room};
 
 void GameMenu::startMenu(GameMenu::CurrentMenu currMenu) {
     while (true) {
@@ -141,7 +143,7 @@ void GameMenu::classSelection() {
             std::cout << "   " << stat.key() << ": " << stat.value() << std::endl;
         }
 
-        PlayerClass playerClass {
+        playerClass = {
             selectedClass["name"],
             selectedClass["stats"]["health"],
             selectedClass["stats"]["mana"],
@@ -150,25 +152,16 @@ void GameMenu::classSelection() {
             selectedClass["stats"]["dexterity"],
             selectedClass["stats"]["intelligence"]
         };
-        Player player(playerName, playerClass, 1, 0, {});
+        player = {playerName, playerClass, 1, 0, {}};
     }
     GameMenu::GameState state = GameMenu::GameState::EXPLORATION;
-    GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::GAME_MENU;
+    GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::EXPLORATION_MENU;
     playerChoice(currMenu);
 }
 
 void GameMenu::exploration() {
-    dialogueShown = false;
+    eh.explore(e);
 
-    while (true) {
-        if (!dialogueShown) {
-            std::cout << "Test" << std::endl;
-            dialogueShown = true;
-        }
-        
-
-    }
-    
 }
 
 void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
@@ -179,7 +172,7 @@ void GameMenu::playerChoice(GameMenu::CurrentMenu currMenu) {
         case GameMenu::CurrentMenu::CLASS_SELECTION:
             classSelection();
             break;
-        case GameMenu::CurrentMenu::GAME_MENU:
+        case GameMenu::CurrentMenu::EXPLORATION_MENU:
             exploration();
             break;
         case GameMenu::CurrentMenu::NEW_GAME:

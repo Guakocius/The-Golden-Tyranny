@@ -2,10 +2,18 @@
 
 #include "game.hpp"
 
+
 class Exploration {
     public:
 
-    Exploration(Player player, std::map<std::string, int> room)
+    static bool isInDialogue;
+
+    struct Room {
+        std::string roomName;
+        int floor;
+    };
+
+    Exploration(Player player, Room room)
     : player(player), room(room) {};
 
     struct ExplorationIndoors {
@@ -16,9 +24,11 @@ class Exploration {
     };
 
     private:
-
+    Room room;
     Player player;
-    std::map<std::string, int> room;
 };
 
 #endif // !EXPLORATION_HPP
+
+#define IN_DIALOGUE Exploration::isInDialogue
+
