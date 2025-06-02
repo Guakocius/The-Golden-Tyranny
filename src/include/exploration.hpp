@@ -11,6 +11,7 @@ class Exploration {
     struct Room {
         std::string roomName;
         int floor;
+        std::string description;
     };
 
     Exploration(Player player, Room room)

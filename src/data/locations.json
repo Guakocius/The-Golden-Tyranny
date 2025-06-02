@@ -1,8 +1,24 @@
 {
     "rooms": [
         {
-            "name": "",
-            "description": ""
+            "heartlands": [
+                {
+                    "prefix": {}
+                },
+                {
+                    "name": "Mainlands",
+                    "id": 0,
+                    "description": ""
+                },
+                {
+                    "name": "Mainlands Prison",
+                    "id": 1,
+                    "description": ""
+                },
+                {
+                    "suffix": {}
+                }
+            ]
         }
     ]
 }
