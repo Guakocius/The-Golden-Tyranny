@@ -5,8 +5,11 @@
 
 enum class World::WorldSize worldSize;
 
-
 void World::generateWorld(int size) {
+    std::cout << "World size: " << size << std::endl;
+    for (int i = 0; i <= size; i++) {
+
+    }
 
 }
 
@@ -25,9 +28,6 @@ int World::getSize(enum class World::WorldSize size) {
     std::uniform_int_distribution<> distrib(min, max);
 
     int randVal = distrib(gen);
-
-    std::cout << "Random number between " << min << " and " << max << " is "
-        << randVal << std::endl;
 
     return randVal;
 }

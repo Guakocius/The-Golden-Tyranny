@@ -1,5 +1,5 @@
 #include "../include/player.hpp"
-#include "../include/exploration.hpp"
+#include "../include/world.hpp"
 
 #include <chrono>
 #include <thread>
@@ -88,7 +88,6 @@ void GameMenu::newGame() {
         << "stands at a crossroads—will it tighten its grip to crush the uprisings, or will its hubris lead to a reckoning\n"
         << "that even the light of the Sun God cannot prevent?\n"
         << std::endl;
-    std::cout.flush();
 
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
@@ -132,6 +131,7 @@ void GameMenu::classSelection() {
 
     int choice;
     std::cin >> choice;
+    std::cin.ignore();
 
     if (choice > 0 && choice <= static_cast<int>(classes.size())) {
         const auto& selectedClass = classes[choice - 1];
@@ -154,8 +154,33 @@ void GameMenu::classSelection() {
         };
         player = {playerName, playerClass, 1, 0, {}};
     }
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cout << "Press Enter to continue..." << std::endl;
+    std::cin.ignore();
+
     GameMenu::GameState state = GameMenu::GameState::EXPLORATION;
     GameMenu::CurrentMenu currMenu = GameMenu::CurrentMenu::EXPLORATION_MENU;
+    system("clear");
+
+    std::cout << "Choose the world size:\n" << "1. Small\n2. Medium\n3. Large"
+        << std::endl;
+    World world;
+    std::cin >> choice;
+    std::cin.ignore();
+
+    enum class World::WorldSize worldSize;
+    switch (choice) {
+        case 1:
+        worldSize = World::WorldSize::SMALL;
+        break;
+        case 2:
+        worldSize = World::WorldSize::MEDIUM;
+        break;
+        case 3:
+        worldSize = World::WorldSize::LARGE;
+    }
+
+    world.generateWorld(world.getSize(worldSize));
     playerChoice(currMenu);
 }
 

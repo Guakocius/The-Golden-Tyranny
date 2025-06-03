@@ -24,6 +24,8 @@ class World {
         void generateWorld(int size);
 
         void setRooms(std::vector<Exploration::Room> rooms, int size);
+        void setSize(WorldSize WorldSize);
+
         int getSize(enum class WorldSize);
 
 
