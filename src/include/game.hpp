@@ -11,6 +11,7 @@
 
 namespace game {
 
+    extern const std::string invalidChoice;
     class GameMenu {
     public:
 
@@ -25,6 +26,8 @@ namespace game {
             EXIT_GAME,
         };
 
+        typedef GameState GameState;
+
         enum class CurrentMenu {
             MAIN_MENU,
             CLASS_SELECTION,
@@ -34,6 +37,8 @@ namespace game {
             OPTIONS,
             EXIT_GAME,
         };
+
+        typedef CurrentMenu CurrentMenu;
 
         void startMenu(GameMenu::CurrentMenu currMenu);
         void classSelection();

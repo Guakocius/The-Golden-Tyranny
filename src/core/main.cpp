@@ -1,4 +1,3 @@
-#include "../include/game.hpp"
 #include "../include/world.hpp"
 
 #include <cstdlib>
@@ -6,8 +5,6 @@
 #include <thread>
 
 using namespace game;
-World world;
-enum class World::WorldSize size;
 GameMenu gameMenu;
 GameMenu::PauseMenu pauseMenu;
 

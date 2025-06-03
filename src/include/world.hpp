@@ -15,22 +15,25 @@ class World {
             LARGE
         };
 
+        typedef WorldSize WorldSize;
 
-        World(std::vector<Exploration::Room> rooms, enum class WorldSize)
-        : rooms(rooms), WorldSize(WorldSize) {};
+
+        World(std::vector<Exploration::Room> rooms, int size)
+        : rooms(rooms), size(size) {};
 
         World() = default;
 
+        void generateWorld();
         void generateWorld(int size);
 
         void setRooms(std::vector<Exploration::Room> rooms, int size);
         void setSize(WorldSize WorldSize);
 
-        int getSize(enum class WorldSize);
+        int getSize(WorldSize WorldSize);
 
 
     private:
-        WorldSize WorldSize;
+        int size;
 };
 
 #endif // !WORLD_HPP

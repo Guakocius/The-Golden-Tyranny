@@ -14,6 +14,8 @@ namespace items {
         CONSUMABLE
     };
 
+    typedef ItemSlot ItemSlot;
+
     enum class Rarity {
         COMMON,
         UNCOMMON,
@@ -21,6 +23,8 @@ namespace items {
         EPIC,
         LEGENDARY
     };
+
+    typedef Rarity Rarity;
 
     struct Item {
         public:
