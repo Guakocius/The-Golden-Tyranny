@@ -5,7 +5,6 @@
 
 class Exploration {
     public:
-
     static bool isInDialogue;
 
     struct Room {
