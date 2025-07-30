@@ -2,8 +2,10 @@
 #define WORLD_HPP
 
 #include <vector>
+
 #include "exploration.hpp"
 
+using json = nlohmann::json;
 
 class World {
     public:
@@ -30,6 +32,7 @@ class World {
         void setSize(WorldSize WorldSize);
 
         int getSize(WorldSize WorldSize);
+        void from_json(const json& json, Exploration::Room& room);
 
 
     private:

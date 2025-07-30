@@ -1,13 +1,20 @@
 #include "../../include/world.hpp"
 
+#include <fstream>
 #include <random>
 #include <utility>
+#include <vector>
+#include "nlohmann/json.hpp"
 
 using namespace game;
+using json = nlohmann::json;
 
 World::WorldSize worldSize;
 World world;
 GameMenu menu;
+
+void World::from_json(const json& json, Exploration::Room& room) {
+}
 
 void World::generateWorld() {
     int choice;
@@ -66,4 +73,17 @@ int World::getSize(World::WorldSize size) {
 }
 void World::setRooms(std::vector<Exploration::Room> rooms, int size) {
     size = getSize(worldSize);
+    json roomsData;
+    std::ifstream file("src/data/locations.json");
+    
+    while (!file.is_open()) {
+        std::cerr << "Error opening file. Please check the file path."
+                  << std::endl;
+        return; 
+    }
+    file >> roomsData;
+    for (int i = 0; i < size; i++) {
+
+        rooms = roomsData.get<std::vector<Exploration::Room>>();
+    }
 }
